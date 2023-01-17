@@ -122,19 +122,6 @@ export class ProductsComponent implements OnInit {
     this.router.navigate([this.href,'editProduct']);
   }
 
-
-  /*deleteProduct(product: IProduct): void {
-    if (product && product.id) {
-      if (confirm(`Are You sure to delete ${product.title} details`)) {
-        this.productService.deleteProduct(product.id).subscribe(
-          (resp) => this.productService.changeSelectedProduct(null),
-          err => this.errorMessage = err
-        );
-      } else {
-        this.productService.changeSelectedProduct(null);
-      }
-    }
-  }*/
   deleteProduct(product:IProduct):void{
 
     if(product && product.id){
