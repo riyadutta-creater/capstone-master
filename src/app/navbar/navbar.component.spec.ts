@@ -9,6 +9,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './navbar.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { By } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -28,6 +29,7 @@ describe('NavbarComponent', () => {
       ],
       schemas:[NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
+
   }));
 
   beforeEach(() => {

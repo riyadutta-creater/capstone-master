@@ -39,15 +39,15 @@ export class LoginComponent implements OnInit {
       //   this.router.navigateByUrl(this.authService.redirectToUrl);
       if (username == "admin" && password == "admin123") {
         this.loginService.setLogin("admin", true, username);
-        this.router.navigateByUrl("#");
+        this.router.navigateByUrl("product");
       }
       else if (username == "abc" && password == "abc123") {
         this.loginService.setLogin("user", true, username);
-        this.router.navigateByUrl("#");
+        this.router.navigateByUrl("product");
       }
       else if (username == "xyz" && password == "xyz123") {
         this.loginService.setLogin("user", true, username);
-        this.router.navigateByUrl("#");
+        this.router.navigateByUrl("product");
       }
       else {
         this._snackBar.open("Wrong Credentials", "Close", {

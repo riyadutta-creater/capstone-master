@@ -1,11 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { Subscription } from 'rxjs';
+import * as ProductActions from "../state/products/product.actions";
+import { Observable, Subscription } from 'rxjs';
 import { CartService } from '../service/cart.service';
 import { ProductService } from '../service/product.service';
 import { IProduct } from './product';
 import { LoginService } from '../service/login.service';
+import { getCurrentProduct, getError, getProducts } from '../state/products/product.selectors';
+import { State } from '../state/products/product.state';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-products',
@@ -21,12 +24,17 @@ export class ProductsComponent implements OnInit {
   errorMessage: string = '';
   products: IProduct[] = [];
   isButtonVisible: boolean = false;
+  product!:IProduct;
+  products$!:Observable<IProduct[]>;
+  selectedProduct$!:Observable<any>;
+  errorMessage$!: Observable<string>;
 
-  constructor(private productService: ProductService, private router: Router, private cartService: CartService, private loginService: LoginService) {
+  constructor(private productService: ProductService, private router: Router, private cartService: CartService, private loginService: LoginService, private store:Store<State>) {
   }
-
+  dataReceived=this.productService.getProducts();
+  obsProducts$!:Observable<IProduct[]>;
   ngOnInit(): void {
-    this.href = this.router.url;
+    /*this.href = this.router.url;
     this.sub = this.productService.getProducts().subscribe(
       (resp) => {
         this.products = resp;
@@ -40,26 +48,42 @@ export class ProductsComponent implements OnInit {
           // console.log(this.products)
         });
       });
-    this.cartService.search.subscribe((val: any) => {
-      this.searchKey = val;
-    })
-    /*this.href=this.router.url;
-this.productService.getProducts()
-.subscribe(res=>{
-this.products = res;
-this.filterCategory = res;
-this.products.forEach((a:any) => {
-  if(a.category ==="women's clothing" || a.category ==="men's clothing"){
-    a.category ="fashion"
-  }
-  Object.assign(a,{quantity:1,total:a.price});
-});
-console.log(this.products)
-});
+      this.cartService.search.subscribe((val: any) => {
+        this.searchKey = val;
+    })*/
+    if (this.loginService.role == "admin"){
 
-this.cartService.search.subscribe((val:any)=>{
-this.searchKey = val;
-})*/
+      this.href=this.router.url;
+  
+      this.products$= this.store.select(getProducts);
+  
+      this.products$.subscribe(resp=>{console.log(resp); this.filterCategory=resp});
+  
+      this.errorMessage$=this.store.select(getError);
+  
+      this.store.dispatch(ProductActions.loadProducts());
+  
+      this.selectedProduct$=this.store.select(getCurrentProduct);
+
+      }
+  
+      this.href = this.router.url;
+      this.sub = this.productService.getProducts().subscribe(
+        (resp) => {
+          this.products = resp;
+          this.filterCategory = resp;
+          this.checkCartProducts();
+          this.products.forEach((a: any) => {
+            if (a.category === "women's clothing" || a.category === "men's clothing") {
+              a.category = "fashion"
+            }
+            Object.assign(a, { quantity: 1, total: a.price });
+          });
+        });
+        this.cartService.search.subscribe((val: any) => {
+          this.searchKey = val;
+      })
+    
     if (this.loginService.role == "admin") {
       this.isButtonVisible = true;
     }
@@ -88,22 +112,18 @@ this.searchKey = val;
     }
   }
 
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
-  }
-
   newProduct(): void {
-    this.productService.changeSelectedProduct(this.productService.newProduct());
-    this.router.navigate(['addProduct']);
+    this.store.dispatch(ProductActions.initializeCurrentProduct());
+    this.router.navigate([this.href,'addProduct']);
   }
 
   productSelected(product: IProduct): void {
-    this.productService.changeSelectedProduct(product);
-    this.router.navigate([this.href, 'editProduct']);
+    this.store.dispatch(ProductActions.setCurrentProduct({currentProductId:product.id}));
+    this.router.navigate([this.href,'editProduct']);
   }
 
 
-  deleteProduct(product: IProduct): void {
+  /*deleteProduct(product: IProduct): void {
     if (product && product.id) {
       if (confirm(`Are You sure to delete ${product.title} details`)) {
         this.productService.deleteProduct(product.id).subscribe(
@@ -112,6 +132,16 @@ this.searchKey = val;
         );
       } else {
         this.productService.changeSelectedProduct(null);
+      }
+    }
+  }*/
+  deleteProduct(product:IProduct):void{
+
+    if(product && product.id){
+      if(confirm(`Are you sure to delete ${product.title} details`)){
+        this.store.dispatch(ProductActions.deleteProduct({productId:product.id}));
+      }else{
+        this.store.dispatch(ProductActions.clearCurrentProduct());
       }
     }
   }

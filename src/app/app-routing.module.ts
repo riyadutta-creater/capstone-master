@@ -9,7 +9,6 @@ import { LoginComponent } from './login/login.component';
 import { StarComponent } from './star/star.component';
 import { UserAuthComponent } from './user-auth/user-auth.component';
 import { ProductsComponent } from './user-product/products.component';
-// import { AuthGuard } from './user/auth.guard';
 import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
@@ -18,10 +17,12 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent},
     { path: 'about', component: AboutUsComponent},
     { path: 'contact', component: ContactUsComponent},
-    { path: 'product', component:ProductsComponent},
+    {path:'product',component:ProductsComponent,
+      loadChildren:()=>import('./product/product.module').then(m=>m.ProductModule)
+    },
     { path: 'cart', component:CartComponent},
     { path: 'login', component:LoginComponent},
-    { path: 'checkout', component: CheckoutComponent }
+    { path: 'checkout', component: CheckoutComponent },
 ];
 
 @NgModule({

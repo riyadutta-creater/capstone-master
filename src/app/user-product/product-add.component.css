@@ -1,0 +1,17 @@
+.container{
+    width: 80%;
+    margin-left:100px;
+    margin-top:20px;
+    padding: 30px;
+    background-color: lightblue;
+    border:20px solid lightcoral;
+}
+.card-header{
+    background-color: yellow;
+}
+.card-body{
+    background-color: lightyellow;
+}
+.form-control:hover{
+    background-color: coral;
+}

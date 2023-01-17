@@ -1,1 +1,65 @@
-<p>product-edit works!</p>
+<div class="container">
+    <div class="card text-center">
+        <div class="card-header text-center">
+          {{pageTitle}}
+        </div>
+        <div class="card-body">
+          <form [formGroup]="addProduct" (ngSubmit)="saveProduct(product)">
+            <div class="form-group row">
+                <label for="id" class="col-sm-2 col-form-label col-form-label-lg">Id : </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control form-control-lg" id="id" name="id" formControlName="id" placeholder="Enter Product Id">
+                </div>
+              </div>
+              <br>
+              <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label col-form-label-lg">Title : </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control form-control-lg" id="title" name="title" formControlName="title" placeholder="Enter Product Title">
+                </div>
+              </div>
+              <br>
+              <div class="form-group row">
+                <label for="description" class="col-sm-2 col-form-label col-form-label-lg">Description : </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control form-control-lg" id="description" name="description" formControlName="description" placeholder="Enter Product Description">
+                </div>
+              </div>
+              <br>
+              <div class="form-group row">
+                <label for="category" class="col-sm-2 col-form-label col-form-label-lg">Category : </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control form-control-lg" id="category" name="category" formControlName="category" placeholder="Enter Food Rating">
+                </div>
+              </div>
+              <br>
+              <div class="form-group row">
+                <label for="image" class="col-sm-2 col-form-label col-form-label-lg">Image : </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control form-control-lg" id="image" name="image" formControlName="image" placeholder="Enter Food Image Url">
+                </div>
+              </div>
+              <br>
+              <div class="form-group row">
+                <label for="price" class="col-sm-2 col-form-label col-form-label-lg">Price : </label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control form-control-lg" id="price" name="price" formControlName="price" placeholder="Enter Food Price">
+                </div>
+              </div>
+              <br>
+              <div class="form-group row">
+                <label for="rating" class="col-sm-2 col-form-label col-form-label-lg">Rating : </label>
+                <div class="col-sm-10">
+                  <input type="number" class="form-control form-control-lg" id="rating" name="rating" formControlName="rating" placeholder="Enter Food Rating">
+                </div>
+              </div>
+              <br>
+              <div>
+                  <button [disabled]='!addProduct.valid ||!addProduct.dirty' class="btn btn-info">SAVE</button>&nbsp;
+                  <button id="btn1" class="btn btn-secondary" (click)="cancel()">CANCEL</button>
+              </div>
+          </form>
+        </div>
+      </div>
+      </div>
+<router-outlet></router-outlet>

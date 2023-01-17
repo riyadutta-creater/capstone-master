@@ -22,14 +22,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryEventDbService } from './inmeoryeventdbservice';
 import { CartComponent } from './cart/cart.component';
 import { UserAuthComponent } from './user-auth/user-auth.component';
-import { FilterPipe } from './filter.pipe';
 import { FooterComponent } from './footer/footer.component';
-// import { SignupComponent } from './user/signup.component';
-// import { AuthGuard } from './user/auth.guard';
-import { ProductsComponent } from './user-product/products.component';
-import { ProductAddComponent } from './user-product/product-add.component';
-import { ProductEditComponent } from './user-product/product-edit.component';
-import { StarComponent } from './star/star.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
@@ -39,6 +32,10 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCardModule} from '@angular/material/card';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { AppEffects } from './app.effects';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -48,17 +45,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     HomeComponent,
     ContactUsComponent,
     LoginComponent,
-    // AdminAuthComponent,
-    ProductsComponent,
     CartComponent,
     UserAuthComponent,
-    FilterPipe,
     FooterComponent,
-    // SignupComponent,
-    ProductsComponent,
-    ProductAddComponent,
-    ProductEditComponent,
-    StarComponent,
     CheckoutComponent
   ],
   imports: [
@@ -84,7 +73,10 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatSlideToggleModule,
     MatRadioModule,
     MatCardModule,
-    MatTooltipModule
+    MatTooltipModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([AppEffects]),
+    StoreDevtoolsModule.instrument(),
   ],
   schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
   // providers: [AuthGuard],
