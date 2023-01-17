@@ -6,10 +6,9 @@ import { CartComponent } from './cart/cart.component';
 import { ContactUsComponent } from './contactUs/contact-us.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { StarComponent } from './star/star.component';
-import { UserAuthComponent } from './user-auth/user-auth.component';
 import { ProductsComponent } from './user-product/products.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
 
@@ -23,6 +22,7 @@ const routes: Routes = [
     { path: 'cart', component:CartComponent},
     { path: 'login', component:LoginComponent},
     { path: 'checkout', component: CheckoutComponent },
+    {path:'**',component:PagenotfoundComponent}
 ];
 
 @NgModule({

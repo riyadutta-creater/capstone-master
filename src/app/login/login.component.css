@@ -1,7 +1,9 @@
 .card {
+    height: 75%;
     width: 60%;
     margin: auto;
     margin-top: 60px;
+    padding: 2rem;
     border: 5px solid rgb(43, 148, 180);
 }
 
@@ -15,4 +17,8 @@
 .form-control {
     color: crimson;
     background-color: lightgoldenrodyellow;
+}
+
+button {
+    border-radius: 2rem;
 }

@@ -1,9 +1,6 @@
 import { Injectable } from "@angular/core";
 import { InMemoryDbService } from "angular-in-memory-web-api";
-// import { Seller } from "./admin-auth/admin";
 import { ICart } from "./cart/cart";
-import { signUp } from "./data";
-import { User } from "./user-auth/user";
 import { IProduct } from "./user-product/product";
 
 @Injectable({ providedIn: 'root' })
@@ -84,31 +81,6 @@ export class InMemoryEventDbService
         "button":false
       }];
 
-    const carts: ICart[] = [
-      {
-        "id": 100,
-        "title": "Orange",
-        "price": 180,
-        "description": "Gold plated",
-        "image": "../../assets/image/ring.jpeg",
-        "quantity": 1,
-        "total": 180
-      },
-      {
-        "id": 101,
-        "title": "Orange",
-        "price": 180,
-        "description": "Gold plated",
-        "image": "../../assets/image/ring.jpeg",
-        "quantity": 1,
-        "total": 180
-      }];
-    // const seller: Seller[] = [
-    //   {
-    //     "name": "riya",
-    //     "email": "riya@gmail.com",
-    //     "password": "abc@123",
-    //   }]
     return { products };
   }
 }

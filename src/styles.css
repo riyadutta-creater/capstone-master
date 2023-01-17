@@ -23,9 +23,9 @@ body {
 }
 
 .form-heading {
-    border-bottom: 2.5px solid rgb(163, 240, 63);
+    border-bottom: 2.5px solid rgb(131, 20, 196);
     text-transform: uppercase;
-    background: linear-gradient(to right, #ce457a, #1421cf);
+    background: linear-gradient(to right, #9337df, #be0921);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
@@ -33,7 +33,7 @@ body {
 .form-heading-small {
     display: inline;
     margin-bottom: 30px;
-    border-bottom: 2.5px solid rgb(240, 63, 231);
+    border-bottom: 2.5px solid rgb(219, 23, 210);
     text-transform: uppercase;
     background: linear-gradient(to right, #dd7ca1, #1421cf);
     -webkit-text-fill-color: transparent;

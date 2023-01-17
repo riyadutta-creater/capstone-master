@@ -2,7 +2,11 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ICart } from '../cart/cart';
 import { IProduct } from '../user-product/product';
-
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +16,7 @@ export class CartService {
   public productList = new BehaviorSubject<ICart[]>([]);
   public search = new BehaviorSubject<string>("");
 
-  constructor() { }
+  constructor(private _snackBar: MatSnackBar) { }
   getProducts() {
     return this.productList.asObservable();
   }
@@ -41,6 +45,11 @@ export class CartService {
     this.cartItemList.map((a: any, index: any) => {
       if (carts.id === a.id) {
         this.cartItemList.splice(index, 1);
+        this._snackBar.open("Item Removed", "Close", {
+          duration: 5000,
+          verticalPosition: "bottom",
+          horizontalPosition: "right",
+        });
       }
     })
     this.productList.next(this.cartItemList);

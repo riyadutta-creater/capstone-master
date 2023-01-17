@@ -42,12 +42,10 @@ export class NavbarComponent {
     this.cartService.search.next(this.searchTerm);
   }
   logout() {
-    // console.log("bdasbdjsabd");
     this.islogged = false;
     this.loginService.isLoggedIn = false;
     this.loginService.role = "";
     this.loginService.username = "";
-
     this.router.navigate(['/', 'login']);
 
   }

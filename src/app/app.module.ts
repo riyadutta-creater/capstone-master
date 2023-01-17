@@ -21,8 +21,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryEventDbService } from './inmeoryeventdbservice';
 import { CartComponent } from './cart/cart.component';
-import { UserAuthComponent } from './user-auth/user-auth.component';
-import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
@@ -36,6 +34,7 @@ import { AppEffects } from './app.effects';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -46,9 +45,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     ContactUsComponent,
     LoginComponent,
     CartComponent,
-    UserAuthComponent,
-    FooterComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,

@@ -24,10 +24,10 @@
                             <th style="width: 12%;">{{item.price}}</th>
                             <td style="width: 12%;">
                                 <button class="material-icons" style="font-size: 20px; border: none; background: #fff;"
-                                    (click)="increaseQuan(item.id, item.quantity)">add_circle_outline</button>
+                                    (click)="increaseQuan(item.id, item.quantity, item)">add_circle_outline</button>
                                 {{item.quantity}}
                                 <button class="material-icons" style="font-size: 20px; border: none; background: #fff;"
-                                    (click)="decreaseQuan(item.id, item.quantity)">remove_circle_outline</button>
+                                    (click)="decreaseQuan(item.id, item.quantity, item)">remove_circle_outline</button>
                             </td>
                             <td style="width: 12%;">{{item.total}}</td>
                             <td>
