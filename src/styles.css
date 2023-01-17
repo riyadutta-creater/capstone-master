@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
+@import url('../node_modules/font-awesome/css/font-awesome.min.css');
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.my-custom-snackbar.mat-snack-bar-container {
+    margin: 0 !important;
+    position: absolute;
+    right: 2rem;
+    top: -3rem;
+    background-color: #fff;
+    color: red;
+}
+
+.form-heading {
+    border-bottom: 2.5px solid rgb(163, 240, 63);
+    text-transform: uppercase;
+    background: linear-gradient(to right, #ce457a, #1421cf);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.form-heading-small {
+    display: inline;
+    margin-bottom: 30px;
+    border-bottom: 2.5px solid rgb(240, 63, 231);
+    text-transform: uppercase;
+    background: linear-gradient(to right, #dd7ca1, #1421cf);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}

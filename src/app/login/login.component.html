@@ -1,0 +1,25 @@
+<app-menu></app-menu>
+<div class="card">
+    <div class="card-header">
+        {{pageTitle}}
+    </div>
+    <div class="card-body">
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+            <div class="form-group">
+                <p><label for="userName">Enter User Name : </label>
+                    <input type="text" name="userName" id="userName" #userName="ngModel" ngModel class="form-control"
+                        required>
+                </p>
+
+                <p><label for="password">Enter Password : </label>
+                    <input type="password" name="password" id="password" #password="ngModel" ngModel
+                        class="form-control" required>
+                </p>
+                <a class="btn btn-secondary" (click)="cancel()">Cancel</a>
+                &nbsp;
+                <button class="btn btn-success" [disabled]="!loginForm.valid">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+

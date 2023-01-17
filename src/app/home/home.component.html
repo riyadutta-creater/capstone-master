@@ -1,0 +1,128 @@
+<!--<ngb-carousel *ngIf="images">
+	<ng-template ngbSlide>
+		<div class="picsum-img-wrapper">
+			<img [src]="images[0]" alt="Random first slide" />
+		</div>
+		<div class="carousel-caption">
+			<h3>First slide label</h3>
+			<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+		</div>
+	</ng-template>
+	<ng-template ngbSlide>
+		<div class="picsum-img-wrapper">
+			<img [src]="images[1]" alt="Random second slide"/>
+		</div>
+		<div class="carousel-caption">
+			<h3>Second slide label</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		</div>
+	</ng-template>
+	<ng-template ngbSlide>
+		<div class="picsum-img-wrapper">
+			<img [src]="images[2]" alt="Random third slide" />
+		</div>
+		<div class="carousel-caption">
+			<h3>Third slide label</h3>
+			<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+		</div>
+	</ng-template>
+</ngb-carousel>-->
+<div class="container">
+    <h5 style="text-align: center;">Welcome to InstaSMart | Dear {{username}}</h5><hr>
+<ngb-carousel style="background-color: black;"
+        [showNavigationArrows]="true" 
+        [showNavigationIndicators]="true"
+        [interval]="2000"
+        [keyboard]="true"
+        [pauseOnHover]="true"
+        [wrap]="true"
+        [activeId]="'sliderOne'">
+    <ng-template ngbSlide id="sliderOne">
+        <div class="picsum-img-wrapper" style="text-align: center; margin: 20px;">
+            <img src="../../assets/image/slider1.jpeg" alt="Carousel One">
+		</div>
+        <div class="carousel-caption">
+            <h3>Title</h3>
+            <p>Aenean malesuada nisi ut commodo semper.</p>
+        </div>
+    </ng-template>
+    <ng-template ngbSlide id="sliderTwo">
+        <div class="picsum-img-wrapper" style="text-align: center; margin: 20px;">
+            <img src="../../assets/image/slider2.jpeg" alt="Carousel Two">
+        </div>
+        <div class="carousel-caption">
+            <h3>Title</h3>
+            <p>Aenean malesuada nisi ut commodo semper, Sit amet sagittis dolor.</p>
+        </div>
+    </ng-template>
+    <ng-template ngbSlide id="sliderThree">
+        <div class="picsum-img-wrapper" style="text-align: center; margin: 20px;">
+            <img src="../../assets/image/slider3.jpeg" alt="Carousel Three">
+        </div>
+        <div class="carousel-caption">
+            <h3>Title</h3>
+            <p>Commodo semper sit amet sagittis dolor.</p>
+        </div>
+    </ng-template>
+
+	<ng-template ngbSlide id="sliderFour">
+        <div class="picsum-img-wrapper" style="text-align: center; margin: 20px;">
+            <img src="../../assets/image/slider4.jpeg" alt="Carousel Four">
+        </div>
+        <div class="carousel-caption">
+            <h3>Title</h3>
+            <p>Commodo semper sit amet sagittis dolor.</p>
+        </div>
+    </ng-template>
+    <ng-template ngbSlide id="sliderFive">
+        <div class="picsum-img-wrapper" style="text-align: center; margin: 20px;">
+            <img style="height: 400px;"
+            src="../../assets/image/slider5.jpeg" alt="Carousel Five">
+        </div>
+        <div class="carousel-caption">
+            <h3>Title</h3>
+            <p>Commodo semper sit amet sagittis dolor.</p>
+        </div>
+    </ng-template>
+</ngb-carousel>
+<br>
+</div>
+<!--
+<mdb-carousel [controls]="true" [indicators]="true" [dark]="true" 
+[keyboard]="true"
+[pauseOnHover]="true"
+[wrap]="true">
+    <mdb-carousel-item>
+      <img 
+        src="../../assets/image/slider1.jpeg"
+        class="d-block w-100"
+        alt="..."
+      />
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      </div>
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <img
+        src="https://mdbootstrap.com/img/Photos/Slides/img%20(35).webp"
+        class="d-block w-100"
+        alt="..."
+      />
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <img
+        src="https://mdbootstrap.com/img/Photos/Slides/img%20(40).webp"
+        class="d-block w-100"
+        alt="..."
+      />
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      </div>
+    </mdb-carousel-item>
+  </mdb-carousel>-->

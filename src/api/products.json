@@ -1,0 +1,33 @@
+[
+  {
+    "id":100,
+    "title":"Orange",
+    "price":180,
+    "description":"Gold plated",
+    "category":"jewelery",
+    "image":"../../assets/images/ring.jpeg"
+  },
+  {
+    "id":101,
+    "title":"Orange",
+    "price":180,
+    "description":"Gold plated",
+    "category":"grocery",
+    "image":"../../assets/images/onion.webp"
+  },
+  {
+    "id":103,
+    "title":"Orange",
+    "price":180,
+    "description":"Gold plated",
+    "category":"electronics",
+    "image":"../../assets/images/laptop.webp"
+  },
+  {
+    "id":104,
+    "title":"Orange",
+    "price":180,
+    "description":"Gold plated",
+    "category":"fashion",
+    "image":"../../assets/images/dress.jpeg"
+  }]
