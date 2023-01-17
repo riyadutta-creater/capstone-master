@@ -10,15 +10,12 @@ import { LoginService } from '../service/login.service';
 export class HomeComponent implements OnInit{
  
   id!: string|null;  
-  public username: string = "";
   constructor(private router: Router, private loginService: LoginService) { }  
   ngOnInit() {  
-    this.id = localStorage.getItem('token');  
-    //console.log(this.id);  
+    this.id = localStorage.getItem('token');    
   } 
   logout() {  
-    console.log('logout');  
-    // this.authService.logout();  
+    console.log('logout');   
     this.router.navigate(['/login']);  
   } 
   

@@ -37,11 +37,11 @@ export class LoginComponent implements OnInit {
 
       // if (this.authService.redirectToUrl) {
       //   this.router.navigateByUrl(this.authService.redirectToUrl);
-      if (username == "admin" && password == "admin123") {
+      if (username == "Riya" && password == "Riya123") {
         this.loginService.setLogin("admin", true, username);
         this.router.navigateByUrl("product");
       }
-      else if (username == "abc" && password == "abc123") {
+      else if (username == "Shubhu" && password == "Shubhu123") {
         this.loginService.setLogin("user", true, username);
         this.router.navigateByUrl("product");
       }
