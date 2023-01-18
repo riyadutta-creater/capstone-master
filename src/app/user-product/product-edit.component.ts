@@ -88,7 +88,8 @@ export class ProductEditComponent {
       if(this.addProduct.dirty){
 
         const product={...originalProduct,...this.addProduct.value};
-
+        
+        //it will dispatch the product action to update a product
         this.store.dispatch(ProductActions.updateProduct({product}));
       }
 

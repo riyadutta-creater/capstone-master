@@ -137,6 +137,7 @@ describe('ProductService',()=>{
 
      const req = httpMock.expectOne(service.url);
      expect(req.request.method).toBe('POST');
+     //the product is the response flushed as the response body
      req.flush(product1);
   });
 

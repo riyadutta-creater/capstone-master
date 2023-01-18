@@ -88,7 +88,8 @@ export class ProductAddComponent {
       if(this.addProduct.dirty){
 
         const product={...originalProduct,...this.addProduct.value};
-
+        
+        //it will dispatch the product action to create a new product
         this.store.dispatch(ProductActions.createProduct({product}));
       }
 

@@ -29,3 +29,9 @@
 #btn{
     margin-bottom: 30px;
 }
+.payable {
+    position: absolute;
+    right: 6rem;
+    top: 12rem;
+    border-bottom: 2px dashed red ;
+}

@@ -33,6 +33,7 @@ export class CartService {
   addtoCart(carts: ICart[]) {
     this.cartItemList.push(carts);
     this.productList.next(this.cartItemList);
+    //get the initial price when added to the cart
     this.getTotalPrice();
     
   }

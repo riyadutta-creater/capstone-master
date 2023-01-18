@@ -9,7 +9,10 @@ import { CartService } from '../service/cart.service';
 })
 export class CheckoutComponent {
     public paymentMethod: number = 3;
-    constructor(private router: Router, private _snackBar: MatSnackBar, private cartService: CartService ){ }
+    public grandTotal : number = 0
+    constructor(private router: Router, private _snackBar: MatSnackBar, private cartService: CartService ){
+        this.grandTotal=this.cartService.getTotalPrice();
+     }
     //after the button click this will be shown
     onPlaceOrder() {
       this._snackBar.open("Order Placed Successfully", "Close", {
