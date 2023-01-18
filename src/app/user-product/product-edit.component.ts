@@ -35,6 +35,7 @@ export class ProductEditComponent {
       rating:[,[Validators.required, Validators.min(1), Validators.max(5)]]
     });
     
+    //this will fetch the current product from product store
     this.product$= this.store.select(getCurrentProduct).pipe(
      tap(currentProduct => this.displayProduct(currentProduct))
     );
@@ -43,6 +44,7 @@ export class ProductEditComponent {
 
   }
 
+  //getter
   get id(){
     return this.addProduct.get("id");
   }

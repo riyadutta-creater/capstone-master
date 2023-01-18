@@ -34,7 +34,8 @@ export class ProductAddComponent {
       price:[0,[Validators.required, Validators.min(0), Validators.max(30000)]],
       rating:[,[Validators.required, Validators.min(1), Validators.max(5)]]
     });
-
+    
+    //this will fetch the current product from product store
     this.product$= this.store.select(getCurrentProduct).pipe(
      tap(currentProduct => this.displayProduct(currentProduct))
     );
@@ -43,6 +44,7 @@ export class ProductAddComponent {
 
   }
 
+  //getters
   get id(){
     return this.addProduct.get("id");
   }
