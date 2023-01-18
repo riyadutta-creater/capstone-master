@@ -12,8 +12,8 @@ export class InMemoryEventDbService
     const products: IProduct[] = [
       {
         "id": 100,
-        "title": "Orange",
-        "price": 180,
+        "title": "Ring",
+        "price": 10000,
         "description": "Gold plated",
         "category": "jewelery",
         "image": "../../assets/image/ring.jpeg",
@@ -22,9 +22,9 @@ export class InMemoryEventDbService
       },
       {
         "id": 101,
-        "title": "Crange",
-        "price": 180,
-        "description": "Gold plated",
+        "title": "Onion",
+        "price": 280,
+        "description": "Fresh",
         "category": "grocery",
         "image": "../../assets/image/onion.webp",
         "rating": 3.2,
@@ -32,9 +32,9 @@ export class InMemoryEventDbService
       },
       {
         "id": 103,
-        "title": "Zrange",
-        "price": 180,
-        "description": "Gold plated",
+        "title": "Laptop",
+        "price": 120000,
+        "description": "8GB RAM",
         "category": "electronics",
         "image": "../../assets/image/laptop.webp",
         "rating": 4,
@@ -44,7 +44,7 @@ export class InMemoryEventDbService
         "id": 104,
         "title": "Diamond Earning",
         "price": 180,
-        "description": "Gold plated",
+        "description": "24 Carat",
         "category": "jewelery",
         "image": "../../assets/image/earing.webp",
         "rating": 4.8,
@@ -63,7 +63,7 @@ export class InMemoryEventDbService
       {
         "id": 106,
         "title": "Jean's",
-        "price": 1800,
+        "price": 2800,
         "description": "Comfortable and Stretchable",
         "category": "men's clothing",
         "image": "../../assets/image/men.jpeg",
@@ -73,7 +73,7 @@ export class InMemoryEventDbService
       {
         "id": 107,
         "title": "Office Shoe",
-        "price": 180,
+        "price": 3000,
         "description": "Gold plated",
         "category": "shoe",
         "image": "../../assets/image/shoe1.webp",
