@@ -13,6 +13,7 @@ export class ProductService{
     selectedProductChanges$=this.selectedProductSource.asObservable();
     constructor(private http:HttpClient){}
 
+    //get the products from in memory database 
     getProducts():Observable<IProduct[]>{
        return this.http.get<IProduct[]>(this.url).pipe(
             tap(data=>{
@@ -21,19 +22,8 @@ export class ProductService{
            catchError(this.errorHandler)
         );
   }
-
-    /*productList():Observable<IProduct[]>{
-      return this.http.get<IProduct[]>(this.url).pipe(
-        tap(data=>{
-         
-        },
-            catchError(this.errorHandler)
-        )
-      )
-
-    }
-    */
-
+  
+  //function for handling the errors 
   errorHandler=(err:any)=>{
     let errorMessage:string;
     if(err.error instanceof ErrorEvent)
@@ -46,7 +36,7 @@ export class ProductService{
      console.log(err);
      return throwError(errorMessage);
   }
-
+  
   changeSelectedProduct(selectedProduct: IProduct|null ):void{
     this.selectedProductSource.next(selectedProduct);
   }
@@ -63,7 +53,8 @@ export class ProductService{
       "button":false
     };
   }
-
+  
+  //add a new product in the product list
   createProduct(product:IProduct):Observable<IProduct>{
     const headers= new HttpHeaders({'Content-Type':'application/json'});
     const newProduct={...product};
@@ -75,7 +66,8 @@ export class ProductService{
         )
       )
   }
-
+  
+  //delete a particular product from the product list
   deleteProduct(id:number):Observable<{}>{
     const headers= new HttpHeaders({'Content-Type':'application/json'});
     const url= `${this.url}/${id}`;
@@ -86,7 +78,8 @@ export class ProductService{
       catchError(this.errorHandler))
     );
   }
-
+  
+  //edit a product which is present in the product list
    updateProduct(product:IProduct):Observable<IProduct>{
     const headers= new HttpHeaders({'Content-Type':'application/json'});
     const url= `${this.url}/${product.id}`;

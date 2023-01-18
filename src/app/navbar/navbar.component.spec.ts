@@ -58,42 +58,49 @@ describe('NavbarComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  //check home page is rendering
   it('should have the Home',()=>{
     expect(fixture.debugElement.query(By.css('#home'))).toBeTruthy();
     const homes:HTMLElement=fixture.debugElement.query(By.css('#home')).nativeElement;
     expect(homes.textContent).toEqual('Home')
   })
 
+  //check product page is rendering
   it('should have the Product',()=>{
     expect(fixture.debugElement.query(By.css('#products'))).toBeTruthy();
     const products:HTMLElement=fixture.debugElement.query(By.css('#products')).nativeElement;
     expect(products.textContent).toEqual('Product')
   })
 
+  //check about us page is rendering
   it('should have the About Us',()=>{
     expect(fixture.debugElement.query(By.css('#aboutus'))).toBeTruthy();
     const abouts:HTMLElement=fixture.debugElement.query(By.css('#aboutus')).nativeElement;
     expect(abouts.textContent).toEqual('AboutUs')
   })
 
+  //check contact us page is rendering
   it('should have the Contact Us',()=>{
     expect(fixture.debugElement.query(By.css('#contactus'))).toBeTruthy();
     const contacts:HTMLElement=fixture.debugElement.query(By.css('#contactus')).nativeElement;
     expect(contacts.textContent).toEqual('ContactUs')
   })
 
+  //check login page is rendering
   it('should have the Login',()=>{
     expect(fixture.debugElement.query(By.css('#login'))).toBeTruthy();
     const logins:HTMLElement=fixture.debugElement.query(By.css('#login')).nativeElement;
     expect(logins.textContent).toEqual('Login')
   })
 
+  //check after clicked on login logout button is rendering
   it('should check the logout button when login',()=>{
     component.islogged=true;
     fixture.detectChanges();
     expect(fixture.debugElement.query(By.css('#logout'))).toBeTruthy();
   })
 
+  //check after clicked on login Welcome username is rendering
   it('should check the welcome username when clicked on login',()=>{
     service.setLogin('admin', true, 'Riya');
     component.islogged=true;
@@ -102,7 +109,5 @@ describe('NavbarComponent', () => {
     expect(fixture.debugElement.query(By.css('#welcome'))).toBeTruthy();
     const element:HTMLElement=fixture.debugElement.query(By.css('#welcome')).nativeElement;
     expect(element.textContent).toEqual('Welcome admin')
-  })
-
-  
+  })  
 });

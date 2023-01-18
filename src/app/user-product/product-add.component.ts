@@ -80,7 +80,8 @@ export class ProductAddComponent {
       })
     }
   }
-
+  
+  //after clicking the save button this method will call and create product service is called to adding products
   saveProduct(originalProduct : IProduct | undefined | null):void{
 
     if(this.addProduct.valid){
@@ -94,6 +95,7 @@ export class ProductAddComponent {
       this.router.navigate(['product']);
     }
   }
+
   cancel():void{
     this.router.navigate(['product']);
   }

@@ -13,6 +13,7 @@ describe('CheckoutComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CheckoutComponent ],
+      imports:[],
       schemas: [CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA],
       providers:[MatSnackBar]
     })

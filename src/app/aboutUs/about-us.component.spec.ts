@@ -20,4 +20,10 @@ describe('AboutUsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  //checks the title/heading in the about us page 
+  it(`should have as title 'About US'`, () => {
+    const fixture = TestBed.createComponent(AboutUsComponent);
+    const about = fixture.componentInstance;
+    expect(about.title).toEqual('About US');
+  });
 });

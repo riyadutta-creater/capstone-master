@@ -36,6 +36,7 @@ export class NavbarComponent {
     this.islogged = this.loginService.isLoggedIn;
     this.username = this.loginService.username;
   }
+  //serach bar filtering function based on product name
   search(event: any) {
     this.searchTerm = (event.target as HTMLInputElement).value;
     console.log(this.searchTerm);

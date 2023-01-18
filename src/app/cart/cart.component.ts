@@ -14,6 +14,7 @@ import {
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
+  //function is for increment of the quantity in cart page
   increaseQuan(id: any, quantity: any, item: any) {
     for (let i = 0; i < this.carts.length; i++) {
       if (item.quantity < 5) {
@@ -36,6 +37,7 @@ export class CartComponent {
         }
       }
     }
+  //function is for decrement of the quantity in cart page
   decreaseQuan(id: any, quantity: any, item: any) {
     for (let i = 0; i < this.carts.length; i++) {
       if (item.quantity != 0) {
@@ -55,6 +57,7 @@ export class CartComponent {
   constructor(private cartService: CartService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+   //getting the cart items from products along with the price
     this.cartService.getProducts()
       .subscribe(res => {
         this.carts = res;
@@ -63,11 +66,13 @@ export class CartComponent {
         console.log(this.carts);
       })
   }
+  //it will remove one particular item from the cart
   removeItem(item: any) {
     console.log(item);
     this.grandTotal = item.quantity * item.price;
     this.cartService.removeCartItem(item);
   }
+  //it will remove all item from the cart at once
   emptycart() {
     alert("Confirm to Clear the Cart");
     {

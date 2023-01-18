@@ -13,7 +13,8 @@ export class HomeComponent implements OnInit{
   constructor(private router: Router, private loginService: LoginService) { }  
   ngOnInit() {  
     this.id = localStorage.getItem('token');    
-  } 
+  }
+  //calling logout function to naviagte 
   logout() {  
     console.log('logout');   
     this.router.navigate(['/login']);  

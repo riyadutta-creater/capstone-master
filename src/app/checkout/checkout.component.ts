@@ -10,13 +10,16 @@ import { CartService } from '../service/cart.service';
 export class CheckoutComponent {
     public paymentMethod: number = 3;
     constructor(private router: Router, private _snackBar: MatSnackBar, private cartService: CartService ){ }
+    //after the button click this will be shown
     onPlaceOrder() {
       this._snackBar.open("Order Placed Successfully", "Close", {
         duration: 5000,
         verticalPosition:"top",
         horizontalPosition: "right"
       });
+      //after the button click navigate to the home page
       this.router.navigate(["home"]);
+      //and all the cat values are removed
       this.cartService.removeAllCart();
     }
 }

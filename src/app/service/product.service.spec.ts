@@ -89,7 +89,8 @@ describe('ProductService',()=>{
   it('should be created',()=>{
     expect(service).toBeTruthy();
   });
-
+  
+  //check the working functionally of get products
   it('should check getProducts() method',inject([HttpTestingController,ProductService],
     (httpMock:HttpTestingController,service:ProductService)=>{
 
@@ -106,6 +107,7 @@ describe('ProductService',()=>{
 
   }));
 
+   //check the working functionally of add products
   it('should check createproduct() method',()=>{
     let product1:IProduct={
         "id": 110,
@@ -129,10 +131,6 @@ describe('ProductService',()=>{
     };
 
     products=[...products,product1];
-
-    //service.createFlower(flower1).subscribe(resp=>expect(JSON.parse(JSON.stringify(resp))).toEqual(JSON.parse(JSON.stringify(flower1))) );
-    //service.createFlower(flower2).subscribe(resp=>expect(resp).toEqual(flower2));
-
     service.createProduct(product1).subscribe(resp=>expect(resp).toEqual(product1));
 
      expect(products.length).toEqual(7);
@@ -142,6 +140,7 @@ describe('ProductService',()=>{
      req.flush(product1);
   });
 
+   //check the working functionally of edit products
   it('should check the updateProduct() method',()=>{
     let product2={
         "id": 111,
@@ -162,6 +161,7 @@ describe('ProductService',()=>{
        req.flush({product2 });
   });
 
+   //check the working functionally of delete products
   it('should check the deleteProduct() method',()=>{
 
     let product1:IProduct={

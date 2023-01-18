@@ -23,6 +23,7 @@ describe('CartService', () => {
     expect(service).toBeTruthy();
   });
 
+  //check add to cart method functionality in cart service
   it('should check addtoCart method', () => {
     
     let products:ICart[]=[
@@ -37,10 +38,10 @@ describe('CartService', () => {
         }
     ]
     service.addtoCart(products);
-    //service.cartItemList=products;
     expect(service.cartItemList[0]).toEqual(products);
   });
-
+  
+  //check get Total Price method functionality in cart service
   it('should check getTotalprice method', () => {
     
     let products:ICart[]=[
@@ -67,6 +68,7 @@ describe('CartService', () => {
     expect(service.getTotalPrice()).toEqual(17000);
   });
 
+  //check remove cart method functionality in cart service
   it('should check removeCart method', () => {
     
     let products:ICart[]=[
@@ -90,12 +92,11 @@ describe('CartService', () => {
         }
     ]
     service.addtoCart(products);
-    //service.cartItemList=products;
-    //expect(service.cartItemList[0]).toEqual(products);
     service.removeCartItem(products[0]);
     expect(service.cartItemList.length).toEqual(1);
   });
 
+  //check remove cart all method functionality in cart service
   it('should check removeCartAll method', () => {
     
     let products:ICart[]=[

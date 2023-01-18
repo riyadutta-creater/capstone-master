@@ -5,7 +5,6 @@ import { IProduct } from './user-product/product';
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
-
   transform(products : IProduct[], filterString: string, propName:string) {
     const result:any=[];
     if(!products || filterString==='' || propName ===''){

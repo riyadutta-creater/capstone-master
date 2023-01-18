@@ -9,6 +9,7 @@ export class LoginService {
   username: string = "";
   constructor() { }
 
+  //setting the login with role and username
   setLogin(r: string, logged: boolean, user: string) {
     this.role = r;
     this.isLoggedIn = logged;

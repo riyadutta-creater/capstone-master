@@ -34,23 +34,8 @@ export class ProductsComponent implements OnInit {
   dataReceived=this.productService.getProducts();
   obsProducts$!:Observable<IProduct[]>;
   ngOnInit(): void {
-    /*this.href = this.router.url;
-    this.sub = this.productService.getProducts().subscribe(
-      (resp) => {
-        this.products = resp;
-        this.filterCategory = resp;
-        this.checkCartProducts();
-        this.products.forEach((a: any) => {
-          if (a.category === "women's clothing" || a.category === "men's clothing") {
-            a.category = "fashion"
-          }
-          Object.assign(a, { quantity: 1, total: a.price });
-          // console.log(this.products)
-        });
-      });
-      this.cartService.search.subscribe((val: any) => {
-        this.searchKey = val;
-    })*/
+
+    //get the products using redux state management---for admin
     if (this.loginService.role == "admin"){
 
       this.href=this.router.url;
@@ -66,7 +51,8 @@ export class ProductsComponent implements OnInit {
       this.selectedProduct$=this.store.select(getCurrentProduct);
 
       }
-  
+
+    //get the products using subscribe ---for user
       this.href = this.router.url;
       this.sub = this.productService.getProducts().subscribe(
         (resp) => {
@@ -95,6 +81,7 @@ export class ProductsComponent implements OnInit {
     }
   }
 
+  //to initialize the cart and 
   checkCartProducts() {
     var cartProducts: string[] = [];
     this.cartService.getProducts().subscribe((data: any) => {
@@ -111,17 +98,20 @@ export class ProductsComponent implements OnInit {
       this.filterCategory = updatedItem;
     }
   }
-
+  
+  //add the products using redux state management and to go the add page
   newProduct(): void {
     this.store.dispatch(ProductActions.initializeCurrentProduct());
     this.router.navigate([this.href,'addProduct']);
   }
 
+  //edit the products using redux state management and to go the edit page
   productSelected(product: IProduct): void {
     this.store.dispatch(ProductActions.setCurrentProduct({currentProductId:product.id}));
     this.router.navigate([this.href,'editProduct']);
   }
 
+  //delte the products using redux state management and remove the product
   deleteProduct(product:IProduct):void{
 
     if(product && product.id){
@@ -132,6 +122,7 @@ export class ProductsComponent implements OnInit {
       }
     }
   }
+
   addtocart(item: any) {
     this.cartService.addtoCart(item);
     const updatedItem = this.filterCategory.map((i) => {
@@ -141,17 +132,9 @@ export class ProductsComponent implements OnInit {
       } : i;
     })
     this.filterCategory = updatedItem;
-    // var flag: number = 0;
-    // for (let i in this.filterCategory) {
-    //   if (this.filterCategory[i].id == item.id) {
-    //     flag = 1;
-    //     break;
-    //   }
-    // }
-    // if (flag == 1) {
-    //   this.isButtonVisible = item.id;
-    // }
   }
+  
+  //filter the product based on category
   filter(category: string) {
     this.filterCategory = this.products
       .filter((a: any) => {
@@ -160,6 +143,8 @@ export class ProductsComponent implements OnInit {
         }
       })
   }
+
+  //it will navigate to the cart page
   goToCart() {
     this.router.navigate(['/cart']);
   }

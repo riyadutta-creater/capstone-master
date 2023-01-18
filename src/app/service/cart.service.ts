@@ -17,23 +17,27 @@ export class CartService {
   public search = new BehaviorSubject<string>("");
 
   constructor(private _snackBar: MatSnackBar) { }
+
+  //get the product item using observable
   getProducts() {
     return this.productList.asObservable();
   }
-
+  
+  //set the products into the carts
   setProduct(carts: ICart[]) {
     this.cartItemList.push(...carts);
     this.productList.next(carts);
   }
+
+  //function of adding products to the cart
   addtoCart(carts: ICart[]) {
     this.cartItemList.push(carts);
-    
     this.productList.next(this.cartItemList);
     this.getTotalPrice();
-    // console.log(this.cartItemList)
-    // console.log(this.cartItemList.id);
     
   }
+
+  //function for calculating the grand total price
   getTotalPrice(): number {
     let grandTotal = 0;
     this.cartItemList.map((a: any) => {
@@ -41,6 +45,8 @@ export class CartService {
     })
     return grandTotal;
   }
+
+  //function for removing 1 item at a time from cart
   removeCartItem(carts: any) {
     this.cartItemList.map((a: any, index: any) => {
       if (carts.id === a.id) {
@@ -54,6 +60,8 @@ export class CartService {
     })
     this.productList.next(this.cartItemList);
   }
+
+  //function for remove all the items from the cart
   removeAllCart() {
     this.cartItemList = []
     this.productList.next(this.cartItemList);

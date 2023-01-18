@@ -81,6 +81,7 @@ export class ProductEditComponent {
     }
   }
 
+  //after clicking the save button this method will call and edit product service is called to adding products
   saveProduct(originalProduct : IProduct | undefined | null):void{
 
     if(this.addProduct.valid){
