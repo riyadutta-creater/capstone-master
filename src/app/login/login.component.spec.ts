@@ -22,11 +22,12 @@ describe('LoginComponent', () => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
+  }); 
 
   it('should check username is there or not',()=>{
     const element = fixture.debugElement.query(By.css('#userName'));
@@ -54,5 +55,26 @@ describe('LoginComponent', () => {
     const element = fixture.debugElement.query(By.css('#password'));
     expect(element.nativeElement.getAttribute('name')).toEqual('password');
   })
-  
+
+  it('should have the login button',()=>{
+    const element = fixture.debugElement.query(By.css('#login'));
+    expect(element).toBeTruthy();
+  })
+
+  it('should check input type of login button',()=>{
+    const login = fixture.debugElement.query(By.css('#login'));
+    const login1= login.nativeElement.getAttribute('type');
+    expect(login1).toEqual('submit');
+  })
+
+  it('should have the cancel button',()=>{
+    const element = fixture.debugElement.query(By.css('#cancel'));
+    expect(element).toBeTruthy();
+  })
+
+  it(`should have as title 'Login Form'`, () => {
+    const fixture = TestBed.createComponent(LoginComponent);
+    const app = fixture.componentInstance;
+    expect(app.pageTitle).toEqual('Login Form');
+  });
 });

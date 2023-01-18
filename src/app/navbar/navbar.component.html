@@ -16,6 +16,7 @@
      <a mat-button routerLink="/cart"><span class="material-icons">shopping_cart</span></a>
  </mat-toolbar>
  <router-outlet></router-outlet>-->
+ <div class="menu">
  <mat-toolbar color="primary" class="mat-elevation-z6">
   <mat-icon>shopping_cart</mat-icon>
   <span>InstaSMart</span>
@@ -31,7 +32,7 @@
      <a mat-button id="aboutus" routerLink="/about">AboutUs</a>
      <a mat-button id="contactus" routerLink="/contact">ContactUs</a>
      <a mat-raised-button id="login" color="accent" routerLink="/login" *ngIf="islogged == false">Login</a>&nbsp;&nbsp;
-     <a mat-raised-button color="accent" (click)=logout() *ngIf="islogged == true">Logout</a>&nbsp;&nbsp;
+     <a mat-raised-button  id="logout" color="accent" (click)=logout() *ngIf="islogged == true">Logout</a>&nbsp;&nbsp;
      <!--<a mat-button routerLink="/cart"><mat-icon>shopping_cart</mat-icon>
       <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
     </a>-->
@@ -40,8 +41,9 @@
       <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
     </button>
     
-    <h6 style="padding: 2px 2px 0 6px; font-size: medium;" *ngIf="this.islogged == true">Welcome {{this.username}}</h6>
+    <h6 id="welcome" style="padding: 2px 2px 0 6px; font-size: medium;" *ngIf="this.islogged == true">Welcome {{this.username}}</h6>
  </mat-toolbar>
+</div>
 
 
 

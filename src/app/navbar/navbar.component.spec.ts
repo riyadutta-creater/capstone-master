@@ -1,5 +1,5 @@
 import { LayoutModule } from '@angular/cdk/layout';
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed, getTestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -10,10 +10,16 @@ import { NavbarComponent } from './navbar.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { LoginService } from '../service/login.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
+  let service:LoginService;
+  let injector: TestBed;
+  let httpMock: HttpTestingController;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -26,17 +32,27 @@ describe('NavbarComponent', () => {
         MatListModule,
         MatSidenavModule,
         MatToolbarModule,
+        MatSnackBarModule,
+        HttpClientTestingModule
       ],
       schemas:[NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
 
-  }));
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+
+    service=TestBed.get(LoginService);
+    injector = getTestBed();
+    httpMock = injector.get(HttpTestingController);
+
+  }));
+
+ /*beforeEach(() => {
+    fixture = TestBed.createComponent(NavbarComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });*/
 
   it('should compile', () => {
     expect(component).toBeTruthy();
@@ -71,5 +87,22 @@ describe('NavbarComponent', () => {
     const logins:HTMLElement=fixture.debugElement.query(By.css('#login')).nativeElement;
     expect(logins.textContent).toEqual('Login')
   })
+
+  it('should check the logout button when login',()=>{
+    component.islogged=true;
+    fixture.detectChanges();
+    expect(fixture.debugElement.query(By.css('#logout'))).toBeTruthy();
+  })
+
+  it('should check the welcome username when clicked on login',()=>{
+    service.setLogin('admin', true, 'Riya');
+    component.islogged=true;
+    component.username='admin';
+    fixture.detectChanges();
+    expect(fixture.debugElement.query(By.css('#welcome'))).toBeTruthy();
+    const element:HTMLElement=fixture.debugElement.query(By.css('#welcome')).nativeElement;
+    expect(element.textContent).toEqual('Welcome admin')
+  })
+
   
 });

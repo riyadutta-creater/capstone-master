@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="firstName">First name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required ngModel>
                         <div class="invalid-feedback">
                             Valid first name is required.
                         </div>
@@ -136,6 +136,6 @@
                     <hr class="mb-4">
                 </form>
             </mat-card>
-            <button class="btn btn-primary btn-lg btn-block" id="btn" (click)=onPlaceOrder()>Place Order</button>
+            <button class="btn btn-primary btn-lg btn-block" id="btn"  (click)=onPlaceOrder()>Place Order</button>
         </div>
     </div>

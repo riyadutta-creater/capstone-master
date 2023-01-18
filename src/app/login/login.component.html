@@ -15,9 +15,9 @@
                     <input type="password" name="password" id="password" #password="ngModel" ngModel
                         class="form-control" required>
                 </p>
-                <a class="btn btn-secondary" (click)="cancel()">Cancel</a>
+                <a class="btn btn-secondary" id="cancel" (click)="cancel()">Cancel</a>
                 &nbsp;
-                <button class="btn btn-success" [disabled]="!loginForm.valid">Login</button>
+                <button type="submit" class="btn btn-success" id="login" [disabled]="!loginForm.valid">Login</button>
             </div>
         </form>
     </div>

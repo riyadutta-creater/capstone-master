@@ -65,7 +65,6 @@ export class CartComponent {
   }
   removeItem(item: any) {
     console.log(item);
-    
     this.grandTotal = item.quantity * item.price;
     this.cartService.removeCartItem(item);
   }
