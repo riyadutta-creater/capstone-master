@@ -81,7 +81,7 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  //to initialize the cart and 
+  //to check whether the item is already present in the cart or not 
   checkCartProducts() {
     var cartProducts: string[] = [];
     this.cartService.getProducts().subscribe((data: any) => {
@@ -90,12 +90,14 @@ export class ProductsComponent implements OnInit {
     for (let i = 0; i < cartProducts.length; i++) {
       // console.log(cartProducts[i]["id"]);
       const updatedItem = this.filterCategory.map((j) => {
-        return j.id == cartProducts[i]["id"] ? {
+        return j.id == cartProducts[i]["id"] ? {  //if the item is already in the cart it will show go to cart button
+                                                  //else it will show add to cart button
+                                                  //hold the go to cart button
           ...j,
           "button": true
         } : j;
       })
-      this.filterCategory = updatedItem;
+      this.filterCategory = updatedItem;        
     }
   }
   
@@ -123,6 +125,7 @@ export class ProductsComponent implements OnInit {
     }
   }
 
+  //here the item is added to the cart for the first item and go to cart appears
   addtocart(item: any) {
     this.cartService.addtoCart(item);
     const updatedItem = this.filterCategory.map((i) => {
