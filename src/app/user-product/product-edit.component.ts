@@ -15,7 +15,7 @@ import * as ProductActions from "../state/products/product.actions";
   styleUrls: ['./product-edit.component.css']
 })
 export class ProductEditComponent {
-  pageTitle:string="Edit New Food";
+  pageTitle:string="Edit Product";
   errorMessage='';
   product$!: Observable<IProduct | null | undefined>;
   addProduct!: FormGroup;
